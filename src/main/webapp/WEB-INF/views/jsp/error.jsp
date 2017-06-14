@@ -6,14 +6,16 @@
 
 <div class="container">
 
-    <h1>Error Page</h1>
+    <h1>Oops! Something went wrong...</h1>
+
+    <spring:url value="/users" var="backUrl"/>
+    <button class="btn btn-info" onclick="location.href='/users'">Back to Home</button>
 
     <p>${exception.message}</p>
-    <!-- Exception: ${exception.message}.
-		  	<c:forEach items="${exception.stackTrace}" var="stackTrace"> 
-				${stackTrace} 
-			</c:forEach>
-	  	-->
+    ${exception.message}.
+    <c:forEach items="${exception.stackTrace}" var="stackTrace">
+        ${stackTrace}
+    </c:forEach>
 
 </div>
 
