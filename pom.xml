@@ -15,7 +15,7 @@
         <servlet-version>2.5</servlet-version>
         <jsp-version>2.1</jsp-version>
         <jstl-version>1.2</jstl-version>
-        <slf4j-version>1.7.5</slf4j-version>
+        <log4j-version>2.8.2</log4j-version>
     </properties>
 
     <dependencies>
@@ -25,7 +25,7 @@
             <artifactId>spring-context</artifactId>
             <version>${spring-version}</version>
             <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <!-- Exclude Commons Logging in favor of LOG4j -->
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
@@ -63,15 +63,14 @@
 
         <!-- Logging -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j-version}</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j-version}</version>
-            <scope>runtime</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
         </dependency>
 
         <!-- Servlet -->
@@ -95,7 +94,7 @@
             <version>${jstl-version}</version>
         </dependency>
 
-       <!--MysQL-->
+        <!--MysQL-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
