@@ -51,4 +51,12 @@
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>validation</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>

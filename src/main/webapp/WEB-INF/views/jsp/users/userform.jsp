@@ -30,7 +30,7 @@
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <label class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <form:input path="name" type="text" required="true" maxlength="25" autofocus="true" class="form-control" id="name" placeholder="Enter a name"/>
+                    <form:input path="name" type="text" class="form-control" id="name" placeholder="Enter a name"/>
                     <form:errors path="name" class="control-label"/>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                         <button type="submit" class="btn-lg btn-primary pull-right">Add</button>
                     </c:when>
                     <c:otherwise>
-                        <button type="submit" class="btn-lg btn-primary pull-right">Edit</button>
+                        <button type="submit" class="btn-lg btn-primary pull-right">Save</button>
                     </c:otherwise>
                 </c:choose>
             </div>

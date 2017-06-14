@@ -10,11 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.nemchinovsergey.javarush.model.User;
 import ru.nemchinovsergey.javarush.service.UserService;
+import ru.nemchinovsergey.javarush.validator.UserFormValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -26,6 +28,13 @@ public class UserController {
 
     private UserService userService;
 
+    @Autowired
+    UserFormValidator userFormValidator;
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(userFormValidator);
+    }
 
     @Autowired
     @Qualifier(value = "userService")
@@ -132,7 +141,7 @@ public class UserController {
 
         User user = userService.getUserById(id);
 
-        if (user == null) {
+        if (user == null || user.getId() == 0) {
             logger.error("User not found: id", id);
             model.addAttribute("css", "danger");
             model.addAttribute("msg", "User not found");
